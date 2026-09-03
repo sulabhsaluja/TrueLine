@@ -1,0 +1,24 @@
+node_modules/
+.env
+
+# Generated output and temporary uploads
+output/
+tmp/
+
+# Editor and AI settings
+.claude/
+.gemini/
+.vscode/
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# md files and sample data
+PRD.md
+DESIGN.md
+claude.md
+data/

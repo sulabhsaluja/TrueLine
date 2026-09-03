@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Reconciliation Control — every row explained</title>
+    <meta
+      name="description"
+      content="Reconcile bank, ledger and gateway sources with rules you can read. Every match carries its reason code; every exception lands in one of five named categories."
+    />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#faf9f6" />
+
+    <!-- The paper ground is painted before first paint so the page never
+         flashes white and reflows into its real background. -->
+    <style>
+      html { background: #faf9f6; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      This reconciliation tool runs in the browser and needs JavaScript enabled.
+      The engine itself is a plain Node pipeline and can be run from the command
+      line without it.
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

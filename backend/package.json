@@ -1,0 +1,38 @@
+{
+  "name": "multi-source-reconciliation-agent",
+  "version": "1.0.0",
+  "description": "Finance-ops reconciliation agent — Hackathon Track 04: AI Finance Controller",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/**/*.test.js",
+    "test:index": "node --test tests/index.test.js",
+    "test:ingest": "node --test tests/ingest/normalizer.test.js",
+    "test:match": "node --test tests/match/exact_match.test.js",
+    "test:match:fuzzy": "node --test tests/match/fuzzy_match.test.js",
+    "test:audit": "node --test tests/audit/**/*.test.js",
+    "test:report": "node --test tests/report/**/*.test.js",
+    "ingest:demo": "node src/ingest/run_demo.js",
+    "match:exact-demo": "node src/match/run_exact_demo.js",
+    "match:fuzzy-demo": "node src/match/run_fuzzy_demo.js",
+    "audit:demo": "node src/audit/run_audit_demo.js",
+    "report:demo": "node src/report/run_report_demo.js"
+  },
+  "keywords": [
+    "reconciliation",
+    "fintech",
+    "finance-ops"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "csv-parse": "7.0.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.6.0",
+    "multer": "^2.3.0",
+    "pino": "^10.3.1",
+    "zod": "^4.5.4"
+  }
+}
