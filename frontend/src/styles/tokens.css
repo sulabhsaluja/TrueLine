@@ -1,95 +1,39 @@
 /* ============================================================================
-   TOKENS — "Audit Instrument"
+   TOKENS — "Blueprint Instrument"
    ----------------------------------------------------------------------------
-   Direction: the aesthetic of printed financial record and precision
-   measurement. Paper ground, true ink, hairline rules, tabular figures,
-   monospace for the identifiers that are the actual subject matter.
-
-   Deliberately NOT the previous world (near-black canvas, greyscale gradient
-   text, spotlight glows, magnetic buttons). That look reads as AI-hype demo,
-   which is the opposite of the trust this product has to earn — PRD section 5
-   names the primary audience as judges assessing "code they'd trust in a real
-   finance-ops context".
-
-   Every --tone-*-ink value below has been contrast-checked against both the
-   paper ground and its own tint. Measured ratios are noted inline. WCAG AA
-   body text needs 4.5:1.
+   Direction: warm cream paper dashboard that feels like an unfinished
+   finance-controller blueprint: dark charcoal ink, imperfect organic geometry,
+   dashed drafting lines, hand-drawn marker lettering.
    ========================================================================= */
 
 :root {
   color-scheme: light;
 
-  /* ---- Ground ---------------------------------------------------------- */
-  --paper:          #faf9f6;  /* warm sheet, not clinical white            */
-  --paper-raised:   #ffffff;  /* cards sit above the sheet                 */
-  --paper-sunken:   #f3f1ec;  /* wells, table stripes, code blocks         */
-  --paper-inverted: #14181c;  /* the one dark surface, used sparingly      */
+  /* ---- Palette --------------------------------------------------------- */
+  --ink:        #292722;
+  --paper:      #ede5d5;
+  --lime:       #c6ef6c;
+  --coral:      #f36e5e;
+  --blue:       #8fb8ff;
+  --muted:      #81796c;
+  --hero-body:  #665e51;
+  --online-dot: #62b678;
 
-  /* ---- Ink ------------------------------------------------------------- */
-  --ink:        #14181c;  /* 16.9:1 on paper — primary text                */
-  --ink-muted:  #5a6470;  /*  5.7:1 on paper — secondary text              */
-  --ink-faint:  #676f79;  /*  4.8:1 paper / 4.5:1 sunken — tertiary        */
-  --ink-onDark: #f4f2ee;
+  /* Translucent rules/borders */
+  --rule-faint:  rgba(41, 39, 34, 0.09);
+  --rule:        rgba(41, 39, 34, 0.22);
+  --rule-strong: rgba(41, 39, 34, 0.45);
 
-  /* ---- Rules (borders) -------------------------------------------------
-     Hairlines instead of shadows. This is what makes it read as ledger
-     rather than dashboard-template.                                       */
-  --rule-faint:  rgba(20, 24, 28, 0.07);
-  --rule:        rgba(20, 24, 28, 0.13);
-  --rule-strong: rgba(20, 24, 28, 0.26);
-  --rule-ink:    rgba(20, 24, 28, 0.85);
-
-  /* ---- Accent: deep petrol ---------------------------------------------
-     Chosen over the default indigo/violet of AI tooling. Serious, archival,
-     legible. 7.3:1 on paper.                                              */
-  --accent:       #0b5d5d;
-  --accent-hover: #084a4a;
-  --accent-tint:  #e4efee;
-  --accent-rule:  rgba(11, 93, 93, 0.30);
-
-  /* ---- Semantic tones -------------------------------------------------
-     One family per PRD 6.3 category. Consumed by BOTH badges and the chart
-     via getComputedStyle, so the two can never disagree.                  */
-  --tone-positive-ink:  #1f6f43;  /* 5.3:1 on its tint  — MATCHED          */
-  --tone-positive-tint: #e8f3ec;
-  --tone-positive-rule: rgba(31, 111, 67, 0.28);
-
-  --tone-critical-ink:  #a32e1c;  /* 6.7:1 on paper — AMOUNT_MISMATCH      */
-  --tone-critical-tint: #fbeae6;
-  --tone-critical-rule: rgba(163, 46, 28, 0.28);
-
-  --tone-caution-ink:   #8a5a00;  /* 5.3:1 on its tint  — DATE_MISMATCH    */
-  --tone-caution-tint:  #fbf1dc;
-  --tone-caution-rule:  rgba(138, 90, 0, 0.28);
-
-  --tone-violet-ink:    #5b3fa8;  /* 6.5:1 on its tint  — MISSING_COUNTERPART */
-  --tone-violet-tint:   #eee9f8;
-  --tone-violet-rule:   rgba(91, 63, 168, 0.28);
-
-  --tone-cyan-ink:      #16607f;  /* 6.0:1 on its tint  — DUPLICATE_CANDIDATE */
-  --tone-cyan-tint:     #e3f0f5;
-  --tone-cyan-rule:     rgba(22, 96, 127, 0.28);
-
-  --tone-neutral-ink:   #5a6470;  /* 5.7:1 on paper — UNRESOLVED           */
-  --tone-neutral-tint:  #efede8;
-  --tone-neutral-rule:  rgba(90, 100, 112, 0.28);
-
-  /* ---- Type -----------------------------------------------------------
-     System stack by choice: the workspace has no font files and no network
-     at build time, so a webfont could not be verified. Character comes from
-     treatment instead — tight display tracking, a wide scale, tabular
-     figures, slashed zero, mono identifiers.
-     To upgrade later, see DESIGN.md "Typography upgrade path".            */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, "JetBrains Mono",
-               "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  /* ---- Type ----------------------------------------------------------- */
+  --font-sans:   "Space Grotesk", sans-serif;
+  --font-mono:   "DM Mono", monospace;
+  --font-marker: "Permanent Marker", cursive;
 
   /* Scale: 1.25 ratio, clamped at display sizes for fluid response */
-  --text-2xs: 0.6875rem;  /* 11px — micro labels only, never body         */
+  --text-2xs: 0.6875rem;  /* 11px */
   --text-xs:  0.75rem;    /* 12px */
   --text-sm:  0.8125rem;  /* 13px */
-  --text-base:0.9375rem;  /* 15px — body                                  */
+  --text-base:0.9375rem;  /* 15px */
   --text-md:  1.0625rem;  /* 17px */
   --text-lg:  1.3125rem;  /* 21px */
   --text-xl:  1.625rem;   /* 26px */
@@ -101,12 +45,10 @@
   --leading-snug:  1.28;
   --leading-body:  1.6;
 
-  /* Negative tracking at display sizes is the single biggest lever for
-     making a system stack look intentional. */
-  --track-display: -0.035em;
-  --track-tight:   -0.018em;
+  --track-display: -0.075em;
+  --track-tight:   -0.035em;
   --track-normal:  0;
-  --track-label:   0.09em;   /* uppercase micro labels                     */
+  --track-label:   0.09em;
 
   --weight-normal: 400;
   --weight-medium: 500;
@@ -135,21 +77,19 @@
   --radius-lg: 12px;
   --radius-pill: 999px;
 
-  /* ---- Elevation: reserved for things that genuinely float ------------ */
-  --shadow-raised: 0 1px 2px rgba(20, 24, 28, 0.05);
-  --shadow-float:  0 4px 12px rgba(20, 24, 28, 0.09),
-                   0 1px 3px  rgba(20, 24, 28, 0.06);
-  --shadow-modal:  0 18px 48px rgba(20, 24, 28, 0.20),
-                   0 2px 8px   rgba(20, 24, 28, 0.10);
+  /* ---- Elevation ------------------------------------------------------ */
+  --shadow-raised: 0 1px 2px rgba(41, 39, 34, 0.05);
+  --shadow-float:  0 4px 12px rgba(41, 39, 34, 0.09),
+                   0 1px 3px  rgba(41, 39, 34, 0.06);
+  --shadow-modal:  0 18px 48px rgba(41, 39, 34, 0.20),
+                   0 2px 8px   rgba(41, 39, 34, 0.10);
 
   /* ---- Layout --------------------------------------------------------- */
   --measure-prose: 68ch;
-  --width-page:    1180px;
-  --width-wide:    1400px;
+  --width-page:    1420px;
+  --width-wide:    1420px;
 
-  /* ---- Motion ---------------------------------------------------------
-     Durations and easings live here so the Persuade surface and the Operate
-     surface can share vocabulary while differing in amplitude.            */
+  /* ---- Motion --------------------------------------------------------- */
   --dur-instant: 90ms;
   --dur-fast:    160ms;
   --dur-base:    240ms;
@@ -158,7 +98,6 @@
 
   --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-inOut: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  /* Slight overshoot, for the landing page only. */
   --ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
 
   --z-sticky: 10;
@@ -167,23 +106,16 @@
   --z-toast: 60;
 }
 
-/* Tone helper: any element can adopt a tone family by setting data-tone.
-   Badges, panels, callouts and chart legends all use this, which is why a
-   category's colour is defined exactly once. */
-[data-tone='positive'] { --tone-ink: var(--tone-positive-ink); --tone-tint: var(--tone-positive-tint); --tone-rule: var(--tone-positive-rule); }
-[data-tone='critical'] { --tone-ink: var(--tone-critical-ink); --tone-tint: var(--tone-critical-tint); --tone-rule: var(--tone-critical-rule); }
-[data-tone='caution']  { --tone-ink: var(--tone-caution-ink);  --tone-tint: var(--tone-caution-tint);  --tone-rule: var(--tone-caution-rule); }
-[data-tone='violet']   { --tone-ink: var(--tone-violet-ink);   --tone-tint: var(--tone-violet-tint);   --tone-rule: var(--tone-violet-rule); }
-[data-tone='cyan']     { --tone-ink: var(--tone-cyan-ink);     --tone-tint: var(--tone-cyan-tint);     --tone-rule: var(--tone-cyan-rule); }
-[data-tone='neutral']  { --tone-ink: var(--tone-neutral-ink);  --tone-tint: var(--tone-neutral-tint);  --tone-rule: var(--tone-neutral-rule); }
-[data-tone='accent']   { --tone-ink: var(--accent);            --tone-tint: var(--accent-tint);        --tone-rule: var(--accent-rule); }
+/* Tone helper mapping for legacy components */
+[data-tone='positive'] { --tone-ink: var(--lime); --tone-tint: rgba(198, 239, 108, 0.2); --tone-rule: var(--lime); }
+[data-tone='critical'] { --tone-ink: var(--coral); --tone-tint: rgba(243, 110, 94, 0.2); --tone-rule: var(--coral); }
+[data-tone='caution']  { --tone-ink: var(--coral);  --tone-tint: rgba(243, 110, 94, 0.2);  --tone-rule: var(--coral); }
+[data-tone='violet']   { --tone-ink: var(--blue);   --tone-tint: rgba(143, 184, 255, 0.2);   --tone-rule: var(--blue); }
+[data-tone='cyan']     { --tone-ink: var(--blue);     --tone-tint: rgba(143, 184, 255, 0.2);     --tone-rule: var(--blue); }
+[data-tone='neutral']  { --tone-ink: var(--muted);  --tone-tint: rgba(129, 121, 108, 0.2);  --tone-rule: var(--muted); }
+[data-tone='accent']   { --tone-ink: var(--lime);            --tone-tint: rgba(198, 239, 108, 0.2);        --tone-rule: var(--lime); }
 
-/* ---------------------------------------------------------------------------
-   Reduced motion — global neutraliser.
-   The previous build had no reduced-motion handling at all while shipping 3D
-   tilt, magnetic pull, infinite pulses and scroll effects. Anything added
-   under this redesign must survive this block being active.
-   ------------------------------------------------------------------------ */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-instant: 1ms;
